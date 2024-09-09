@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "Invoice";
+}
+@model List<Lecturer>
+<div class="text-center">
+    <h1 class="display-4">Invoice</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Sessions
+                </th>
+                <th>
+                    Programme Name
+                </th>
+                <th>
+                    Module Code
+                </th>
+                <th>
+                    Groups
+                </th>
+                <th>
+                    Rate
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var lecturer in Model)
+                {
+                    <tr>
+                        <td>
+                            @lecturer.Name
+                        </td>
+                        <td>
+                            @lecturer.Id
+                        </td>
+                        <td>
+                            @lecturer.Sessions
+                        </td>
+                        <td>
+                            @lecturer.Programme Name
+                        </td>
+                        <td>
+                            @lecturer.ModuleCode
+                        </td>
+                        <td>
+                            @lecturer.Groups
+                        </td>
+                        <td>
+                            @lecturer.Rate
+                        </td>
+                        <td>
+                            <a asp-action="EditInvoice" asp-route-id="@lecturer.Id">Edit</a>
+                            <a asp-action="DeleteInvoice" asp-route-id="@lecturer.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <br />
+    </hr>
+    <h3>Total Rate @ViewBag.Lecturer</h3>
+    <br />
+</div>
